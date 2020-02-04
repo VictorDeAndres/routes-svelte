@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte",
+    "../../Alfa.svelte",
+    "../../Bravo.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\n\timport Alfa from './Alfa.svelte'\n\timport Bravo from './Bravo.svelte';\n\nconst menuOptions = [\n\t{\n\t\tid: 0,\n\t\tdisplayName: 'Opcion Alfa',\n\t\turl: 'alfa',\n\t\tcomponent: Alfa\n\t},{\n\t\tid: 1,\n\t\tdisplayName: 'Opcion Bravo',\n\t\turl: 'bravo',\n\t\tcomponent: Bravo\n\t}\n]\n\n\tlet currentSelectedOptionMenu = null;\n\n\tfunction handleClickMenu(selectedOption) {\n\t\tconsole.info(selectedOption);\n\t\tcurrentSelectedOptionMenu = selectedOption;\n\t}\n\n</script>\n\n<div class=\"spa\">\n\t<main>\n\t\t<ul>\n\t\t\t{#each menuOptions as menu}\n\t\t\t\t<li>\n\t\t\t\t\t<a href=\"#{menu.url}\" on:click={ () => handleClickMenu(menu.id)}>{menu.displayName}</a>\n\t\t\t\t</li>\n\t\t\t{/each}\n\t\t</ul>\n\t</main>\n\n\t<div class=\"view--container\">\n\t\t{#if currentSelectedOptionMenu !== null}\n\t\t\t<svelte:component this={menuOptions[currentSelectedOptionMenu].component}/>\n\t\t{:else}\n\t\t\t<div>Bienvenido a la página principal</div>\n\t\t{/if}\n\t</div>\n</div>\n\n<style>\n\n\t.spa {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t}\n\n\tul {\n\t\tlist-style: none;\n\t}\n\n\tli {\n\t\tfloat: left;\n\t\tmargin: 0 2em;\n\t\tfont-size: 1.5em;\n\t}\n\n\t.view--container {\n\t\tmargin: 2em 4em;\n\t}\n\n</style>",
+    "<script>\n</script>\n\n<h3>Hey !!!!</h3>\n<p>Esta es la página de la primera opción</p>\n\n<style>\n  h3 {\n    color: green;\n  }\n\n  p {\n    color: rebeccapurple\n  }\n</style>",
+    "<script>\n</script>\n\n<h3>Enhorabuena</h3>\n<p>El emulador de rutas funciona</p>\n\n<style>\n  h3 {\n    color: blue;\n  }\n\n  p {\n    color: royalblue;\n  }\n</style>"
+  ],
+  "names": [],
+  "mappings": "AAkDC,IAAI,cAAC,CAAC,AACL,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,AACvB,CAAC,AAED,EAAE,cAAC,CAAC,AACH,UAAU,CAAE,IAAI,AACjB,CAAC,AAED,EAAE,cAAC,CAAC,AACH,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,CAAC,CAAC,GAAG,CACb,SAAS,CAAE,KAAK,AACjB,CAAC,AAED,gBAAgB,cAAC,CAAC,AACjB,MAAM,CAAE,GAAG,CAAC,GAAG,AAChB,CAAC;AC5DA,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,KAAK,AACd,CAAC,AAED,CAAC,eAAC,CAAC,AACD,KAAK,CAAE,aAAa;EACtB,CAAC;ACND,EAAE,cAAC,CAAC,AACF,KAAK,CAAE,IAAI,AACb,CAAC,AAED,CAAC,cAAC,CAAC,AACD,KAAK,CAAE,SAAS,AAClB,CAAC"
+}
